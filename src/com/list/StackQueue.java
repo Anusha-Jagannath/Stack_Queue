@@ -35,8 +35,47 @@ class LinkedList {
 		}
 		return isAdded;
 	}
-	
-	
+
+	/*
+	 * method to pop data from stack
+	 */
+
+	public void pop() {
+		Node temp = head;
+		Node cur = temp;
+		if (head == null) {
+			System.out.println("Stack is empty");
+			return;
+		} else if (head.next == null) {
+			temp = null;
+			System.out.println("Deleted " + head.data);
+
+		} else {
+			while (temp.next != null) {
+				cur = temp;
+				temp = temp.next;
+			}
+			System.out.println("Deleted " + temp.data);
+			cur.next = null;
+		}
+	}
+	/*
+	 * method to find top most element in the stack
+	 */
+
+	public void peak() {
+		if (head == null) {
+			System.out.println("Stack is empty");
+			return;
+		} else {
+			Node temp = head;
+			while (temp.next != null) {
+				temp = temp.next;
+			}
+			System.out.println("peak element is " + temp.data);
+		}
+	}
+
 	/*
 	 * method to display stack contents
 	 */
@@ -58,7 +97,9 @@ class StackQueue {
 		list.push(70);
 		list.push(30);
 		list.push(56);
+		list.peak();
+		list.pop();
 		list.print();
-		
+
 	}
 }
