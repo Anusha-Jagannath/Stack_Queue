@@ -87,6 +87,40 @@ class LinkedList {
 			temp = temp.next;
 		}
 	}
+	
+	/*
+	 * method to insert data to queue
+	 * 
+	 * @param data
+	 */
+	public boolean enqueue(final int data) {
+		boolean isAdded = false;
+		Node newNode = new Node(data);
+		if (head == null) {
+			head = newNode;
+			isAdded = true;
+		} else {
+			Node temp = head;
+			while (temp.next != null) {
+				temp = temp.next;
+			}
+			temp.next = newNode;
+			isAdded = true;
+		}
+		return isAdded;
+	}
+	
+	/*
+	 * method to display queue contents
+	 */
+	public void printQueue() {
+		Node temp = head;
+		System.out.println("\nQueue elements are");
+		while (temp != null) {
+			System.out.print(temp.data + "->");
+			temp = temp.next;
+		}
+	}
 }
 
 class StackQueue {
@@ -94,12 +128,10 @@ class StackQueue {
 	public static void main(String[] args) {
 		System.out.println("welcome to Stack and Queue program");
 		LinkedList list = new LinkedList();
-		list.push(70);
-		list.push(30);
-		list.push(56);
-		list.peak();
-		list.pop();
-		list.print();
+		list.enqueue(70);
+		list.enqueue(30);
+		list.enqueue(56);
+		list.printQueue();
 
 	}
 }
