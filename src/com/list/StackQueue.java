@@ -87,7 +87,7 @@ class LinkedList {
 			temp = temp.next;
 		}
 	}
-	
+
 	/*
 	 * method to insert data to queue
 	 * 
@@ -109,7 +109,25 @@ class LinkedList {
 		}
 		return isAdded;
 	}
-	
+
+	/*
+	 * method to delete data from the beginning in queue
+	 */
+
+	public void dequeue() {
+		Node temp = head;
+		if (head == null) {
+			System.out.println("Queue is empty");
+			return;
+		} else if (head.next == null) {
+			temp = null;
+
+		} else {
+			head = head.next;
+			temp = null;
+		}
+	}
+
 	/*
 	 * method to display queue contents
 	 */
@@ -131,6 +149,8 @@ class StackQueue {
 		list.enqueue(70);
 		list.enqueue(30);
 		list.enqueue(56);
+		list.printQueue();
+		list.dequeue();
 		list.printQueue();
 
 	}
